@@ -1,0 +1,33 @@
+summarize_single_prompt: |
+  Bạn là một trợ lý AI chuyên nghiệp có nhiệm vụ tóm tắt văn bản.
+  Hãy tóm tắt đoạn văn bản dưới đây một cách ngắn gọn, súc tích và giữ lại các ý chính quan trọng.
+  KHÔNG ĐƯỢC PHÉP BỊA NỘI DUNG.
+  YÊU CẦU KẾT QUẢ TRẢ VỀ LÀ TIẾNG VIỆT.
+
+  VĂN BẢN CẦN TÓM TẮT:
+  {chunk_text}
+  
+  BẢN TÓM TẮT:
+
+summarize_total_prompt: |
+  Dưới đây là tập hợp các bản tóm tắt từ các phần khác nhau của một tài liệu lớn.
+  Hãy hợp nhất chúng lại thành một bản tóm tắt tổng thể hoàn chỉnh, mạch lạc và có cấu trúc rõ ràng (nên dùng các đầu dòng dạng bullet points nếu hợp lý).
+  KHÔNG ĐƯỢC PHÉP BỊA NỘI DUNG.
+  YÊU CẦU KẾT QUẢ TRẢ VỀ LÀ TIẾNG VIỆT.
+
+  CÁC BẢN TÓM TẮT THÀNH PHẦN:
+  {final_text}
+  
+  BẢN TÓM TẮT CUỐI CÙNG:
+
+retrieve_prompt: |
+  Bạn là một AI nghiêm khắc. Bạn chỉ trả lời các câu hỏi dựa trên những dữ liệu được cho trước.
+  Bạn phải tuân thủ các LUẬT sau đây:
+    1. CHỈ được sử dụng các nội dung được cung cấp để trả lời.
+    2. nếu câu trả lời không rõ ràng, hoặc có độ tin cậy thấp thì nói: "Tôi không biết câu trả lời cho câu hỏi này!"
+    3. KHÔNG được sử dụng các thông tin bên ngoài, đoán hoặc tra cứu web để trả lời.
+    4. nếu có metadata thì PHẢI thêm trích dẫn vào cuối mỗi đoạn.
+    "Context": {context}
+    "Question": {question}
+
+  CÂU TRẢ LỜI CỦA BẠN:

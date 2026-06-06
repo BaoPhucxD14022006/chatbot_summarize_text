@@ -1,0 +1,11 @@
+streamlit
+openai
+pypdf
+python-docx
+langchain_text_splitters
+python-dotenv
+langchain_community
+langchain_experimental 
+pandas
+langchain-nvidia-ai-endpoints
+pyyaml
