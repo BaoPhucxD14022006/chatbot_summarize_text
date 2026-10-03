@@ -9,3 +9,5 @@ langchain_experimental
 pandas
 langchain-nvidia-ai-endpoints
 pyyaml
+langchain-qdrant
+qdrant-client

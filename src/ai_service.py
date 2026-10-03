@@ -4,7 +4,10 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 from config import Config, Prompt
 from typing import List
-from vector_service import VectorDatabase
+try:
+    from src.vector_service import VectorDatabase
+except ImportError:
+    from vector_service import VectorDatabase
 
 class NVIDIA_LLM_service:
     def __init__(self) -> None:
