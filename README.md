@@ -35,25 +35,25 @@
 
 ```mermaid
 flowchart TD
-    A[Tài liệu đầu vào: .pdf / .docx] --> B[src/document_processor.py: ExtractFile]
-    B --> C[Văn bản thô]
-    C --> D[Semantic Chunking<br/>NVIDIA Embedding Model]
-    D --> E[Danh sách các Chunks ngữ nghĩa]
-    
-    subgraph Tóm Tắt Đa Tầng (Summarization Pipeline)
-        E --> F[Tóm tắt từng đoạn con<br/>LLaMA 3.1 70B Instruct]
-        F --> G[Các bản tóm tắt thành phần]
-        G --> H[Hợp nhất & Tạo bản tóm tắt cuối cùng]
-        H --> I[Kết quả tóm tắt mạch lạc tiếng Việt]
+    A["Tài liệu đầu vào: .pdf / .docx"] --> B["src/document_processor.py: ExtractFile"]
+    B --> C["Văn bản thô"]
+    C --> D["Semantic Chunking<br/>NVIDIA Embedding Model"]
+    D --> E["Danh sách các Chunks ngữ nghĩa"]
+
+    subgraph S1 ["Tóm Tắt Đa Tầng (Summarization Pipeline)"]
+        E --> F["Tóm tắt từng đoạn con<br/>LLaMA 3.1 70B Instruct"]
+        F --> G["Các bản tóm tắt thành phần"]
+        G --> H["Hợp nhất & Tạo bản tóm tắt cuối cùng"]
+        H --> I["Kết quả tóm tắt mạch lạc tiếng Việt"]
     end
 
-    subgraph Truy Vấn Ngữ Cảnh (RAG Pipeline)
-        E --> J[Lưu vào Qdrant Vector Store]
-        K[Câu hỏi người dùng] --> L[Retriever: Similarity Search]
+    subgraph S2 ["Truy Vấn Ngữ Cảnh (RAG Pipeline)"]
+        E --> J["Lưu vào Qdrant Vector Store"]
+        K["Câu hỏi người dùng"] --> L["Retriever: Similarity Search"]
         J --> L
-        L --> M[Prompt kiểm soát ngữ cảnh & chống bịa]
-        M --> N[LLaMA 3.1 70B Instruct]
-        N --> O[Câu trả lời chính xác có trích dẫn]
+        L --> M["Prompt kiểm soát ngữ cảnh & chống bịa"]
+        M --> N["LLaMA 3.1 70B Instruct"]
+        N --> O["Câu trả lời chính xác có trích dẫn"]
     end
 ```
 
